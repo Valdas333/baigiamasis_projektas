@@ -26,7 +26,9 @@ class Meeting(models.Model):
         ('b', 'InPerson'),
     ]
     type = models.CharField(max_length=1, choices = TYPE_FIXED_VALUES, blank=False,)
-    start_time = models.TimeField(auto_now=True, blank=False, error_messages= "Pasirinkite tinkama pradzios laika")
-    start_date = models.DateField(auto_now=True, blank=False)
-    end_time = models.TimeField(auto_now=False, blank=False)
-    end_date = models.DateField(auto_now=False, blank=False)
+    start_time = models.DateTimeField(auto_now=True, blank=False)
+    end_time = models.DateTimeField(blank=False)
+    create_time = models.DateTimeField(auto_now_add=True, editable=False)
+    
+    def __str__(self):
+        return f"Meetas {self.title}, paskirtas laikas nuo {self.start_time} iki {self.end_time}, sukurtas {self.create_time}"
