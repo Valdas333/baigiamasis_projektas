@@ -2,9 +2,9 @@ from django.db import models
 
 # Create your models here.
 class Person(models.Model):
-    name = models.CharField('Vardas', max_length=100)
-    surname = models.CharField('Pavarde', max_length=100)
-    duties = models.CharField('Pareigos', max_length=20)
+    name = models.CharField('Vardas', max_length=100, blank=False)
+    surname = models.CharField('Pavarde', max_length=100, blank=False)
+    duties = models.CharField('Pareigos', max_length=20, blank=False) #TODO sugalvoti pareigas
     email = models.EmailField('Elektroninis pastas', max_length=254, blank=False)
     
     def __str__(self):
