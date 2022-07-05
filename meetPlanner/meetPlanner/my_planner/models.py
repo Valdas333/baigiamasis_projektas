@@ -4,11 +4,17 @@ from django.db import models
 class Person(models.Model):
     name = models.CharField('Vardas', max_length=100, blank=False)
     surname = models.CharField('Pavarde', max_length=100, blank=False)
-    duties = models.CharField('Pareigos', max_length=20, blank=False) #TODO sugalvoti pareigas
+    DUTIES_FIXED_VALUES = [
+        ('a', 'Developer'),
+        ('b', 'Support'),
+        ('c', 'Testing'),
+        ('d', 'Management'),
+    ]
+    duties = models.CharField('Pareigos', choices= DUTIES_FIXED_VALUES, blank=False, max_length=50)
     email = models.EmailField('Elektroninis pastas', max_length=254, blank=False)
     
     def __str__(self):
-        return f"Atsakingas asmuo {self.name} {self.surname}"
+        return f"{self.name} {self.surname} {self.get_duties_display()}"
     
 class Meeting(models.Model):
     title = models.CharField('Title', max_length=10)

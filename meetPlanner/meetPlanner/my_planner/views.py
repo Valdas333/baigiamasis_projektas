@@ -3,5 +3,5 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Pradinis puslapis")
+    return render(request, 'my_planner/base.html')
     
