@@ -16,7 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+
 urlpatterns = [
-    path('planner/', include('my_planner.urls')),
-    path('admin/', admin.site.urls),
+    path('', include('my_planner.urls')),
+    path('admin/', admin.site.urls),  
 ]
