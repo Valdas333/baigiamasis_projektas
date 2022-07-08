@@ -13,4 +13,4 @@ class TestPage(TestCase):
        response = self.client.get(url)
        self.assertEqual(response.status_code, 200)
        self.assertTemplateUsed(response, 'my_planner/base.html')
-       self.assertContains(response, 'Landing page')  
+       self.assertContains(response, 'Landing page')
