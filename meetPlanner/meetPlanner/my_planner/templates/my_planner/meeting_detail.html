@@ -1,0 +1,6 @@
+{% extends "my_planner/base.html" %}
+{% block title %}Edit meeting{% endblock title%}
+{% block content %}
+<h2>{{object.title}}</h2>
+<h1>{{object.responsible_person.name}}</h1>
+{% endblock content %}

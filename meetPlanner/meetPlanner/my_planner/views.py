@@ -13,14 +13,13 @@ class IndexPageListView(ListView):
     context_object_name = 'meetings'
 
 
-class MeetingListView(DetailView):
+class MeetingDetailView(DetailView):
     model = Meeting
-    template_name = 'my_planner/meeting.html'
-    context_object_name = 'meeting'
 
 
-class CreateMeeting(CreateView):
-    
+
+
+class CreateMeeting(CreateView): 
     form_class = CreateMeetingForm
     template_name = 'my_planner/create_meeting.html'
     success_url = reverse_lazy('create_meeting')
