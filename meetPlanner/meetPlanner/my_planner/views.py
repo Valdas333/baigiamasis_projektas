@@ -19,12 +19,9 @@ class MeetingListView(DetailView):
     context_object_name = 'meeting'
 
 
-class CreateMeeting(FormView):
+class CreateMeeting(CreateView):
     
     form_class = CreateMeetingForm
     template_name = 'my_planner/create_meeting.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('create_meeting')
     
-    def form_valid(self, form):
-        print(form.cleaned_data)
-        return super().form_valid(form)
