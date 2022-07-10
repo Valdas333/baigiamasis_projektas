@@ -33,7 +33,7 @@ class Meeting(models.Model):
         ('b', 'InPerson'),
     ]
     type = models.CharField(max_length=1, choices = TYPE_FIXED_VALUES, blank=False,)
-    start_time = models.DateTimeField(auto_now=True, blank=False)
+    start_time = models.DateTimeField(blank=False)
     end_time = models.DateTimeField(blank=False)
     create_time = models.DateTimeField(auto_now_add=True, editable=False)
     

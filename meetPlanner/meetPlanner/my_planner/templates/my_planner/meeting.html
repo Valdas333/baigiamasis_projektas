@@ -1,0 +1,35 @@
+{% extends "my_planner/base.html" %}
+{% block title %}Meeting details{% endblock title%}
+
+{% block content %}
+<div>
+    <div>
+        <div>
+            <h3>Edit meeting:</h3>
+            <h5>{{ meeting.title | upper }}</h5>
+        </div>
+        <ul>
+            {% for meeting in meeting.objects.all %}
+            <li>
+                <div>
+                    <div
+                        role="button"
+                        onclick="location.href='#'">
+                        {{ meeting.title }}
+                        (Due {{ meeting.end_time}})
+                    </div>
+                </div>
+            </li>
+            {% empty %}
+            <p>Empty meeting</p>
+            {% endfor %}
+        </ul>
+        <p>
+            <input
+                value="Add a new item"
+                type="button"
+                onclick="location.href='#'" />
+        </p>
+    </div>
+</div>
+{% endblock content %}
