@@ -2,10 +2,11 @@ from django.urls import path
 
 from .views import (CreateMeeting, CreatePerson, DeleteMeeting, DeletePerson,
                     IndexPageListView, MeetingDetailView, PersonDetailView,
-                    UpdateMeeting, UpdatePerson)
+                    UpdateMeeting, UpdatePerson, PersonListView)
 
 urlpatterns = [
     path('', IndexPageListView.as_view(),  name='index'),
+    path('persons/', PersonListView.as_view(), name='person_list'),
     path('create_meeting/', CreateMeeting.as_view(), name='create_meeting'),
     path('meeting/<int:pk>/', MeetingDetailView.as_view(), name='meeting_detail'),  
     path('meeting/<int:pk>/update_meeting/', UpdateMeeting.as_view(), name='update_meeting'),

@@ -32,11 +32,17 @@ class DeleteMeeting(DeleteView):
     success_url = reverse_lazy('index')
 
 
+class PersonListView(ListView):
+    model = Person
+    template_name = 'my_planner/persons_list.html'
+    context_object_name = 'persons'    
+
+
 class CreatePerson(CreateView):
     model = Person
     form_class = CreatePersonForm
     template_name = 'my_planner/create_person.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('person_list')
     
     
 class PersonDetailView(DetailView):
@@ -47,10 +53,10 @@ class UpdatePerson(UpdateView):
     model = Person
     form_class = UpdatePersonForm
     template_name = 'my_planner/update_person.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('person_list')
     
 
 class DeletePerson(DeleteView):
     model = Person
     template_name = 'my_planner/delete_person_confirm.html' 
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('person_list')
