@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
+
 class Person(models.Model):
     name = models.CharField('Name', max_length=100, blank=False)
     surname = models.CharField('Surname', max_length=100, blank=False)

@@ -1,0 +1,9 @@
+{% extends "my_planner/base.html" %}
+{% block title %}Update person{% endblock title%}
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <button type="submit" value="Save">Update person</button>
+</form>
+{% endblock content %}

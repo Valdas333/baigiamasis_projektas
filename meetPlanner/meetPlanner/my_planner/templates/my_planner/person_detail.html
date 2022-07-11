@@ -1,0 +1,11 @@
+{% extends "my_planner/base.html" %}
+{% block title %}View person details{% endblock title%}
+{% block head%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'my_planner/css/meeting_detail.css' %}">
+{% endblock head%}
+{% block content %}
+<h1>Person name {{object.name}} surname {{object.surname}}</h1>
+<h3>Duties {{object.get_duties_display}}</h2>
+<h3>Email address {{object.email}}</h2>
+{% endblock content %}

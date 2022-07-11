@@ -27,3 +27,13 @@ class CreatePersonForm(forms.ModelForm):
     class Meta:
         model = Person
         fields = ('name', 'surname', 'duties','email')
+        
+
+class UpdatePersonForm(forms.ModelForm):
+    class Meta:
+        model = Person
+        fields = ('name', 'surname', 'duties','email')
+        
+
+
+        

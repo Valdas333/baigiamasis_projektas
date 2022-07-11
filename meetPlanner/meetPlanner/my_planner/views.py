@@ -1,6 +1,6 @@
 from django.views.generic import ListView, UpdateView, CreateView, DetailView, DeleteView
 from .models import Meeting, Person
-from .forms import CreateMeetingForm, UpdateMeetingForm, CreatePersonForm
+from .forms import CreateMeetingForm, UpdateMeetingForm, CreatePersonForm, UpdatePersonForm
 from django.urls import reverse_lazy, reverse
 
 
@@ -38,3 +38,19 @@ class CreatePerson(CreateView):
     template_name = 'my_planner/create_person.html'
     success_url = reverse_lazy('index')
     
+    
+class PersonDetailView(DetailView):
+    model = Person
+
+
+class UpdatePerson(UpdateView):
+    model = Person
+    form_class = UpdatePersonForm
+    template_name = 'my_planner/update_person.html'
+    success_url = reverse_lazy('index')
+    
+
+class DeletePerson(DeleteView):
+    model = Person
+    template_name = 'my_planner/delete_person_confirm.html' 
+    success_url = reverse_lazy('index')
