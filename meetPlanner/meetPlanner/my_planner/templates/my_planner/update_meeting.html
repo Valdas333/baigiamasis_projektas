@@ -1,0 +1,9 @@
+{% extends "my_planner/base.html" %}
+{% block title %}Create meeting{% endblock title%}
+{% block content %}
+<form action="{% url 'create_meeting' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <button type="submit" value="Save">Update meeting</button>
+</form>
+{% endblock content %}

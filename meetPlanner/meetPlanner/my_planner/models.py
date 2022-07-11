@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.urls import reverse
 
 class Person(models.Model):
     name = models.CharField('Name', max_length=100, blank=False)
@@ -39,3 +39,6 @@ class Meeting(models.Model):
     
     def __str__(self):
         return f"Meet {self.title} is scheduled from {self.start_time} until {self.end_time}, created @{self.create_time}"
+    
+    def get_absolute_url(self):
+        return reverse('meeting_detail', kwargs={'pk':self.pk})

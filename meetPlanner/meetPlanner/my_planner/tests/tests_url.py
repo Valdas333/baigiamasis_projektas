@@ -4,7 +4,6 @@ from django.urls import reverse
  
         
 class TestPage(TestCase):
-
    def setUp(self):
        self.client = Client()
 

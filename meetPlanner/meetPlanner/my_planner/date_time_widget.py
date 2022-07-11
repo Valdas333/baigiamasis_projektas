@@ -3,9 +3,7 @@ from django.utils.timezone import make_aware
 from django.forms import TextInput, MultiWidget, DateTimeField
 
 
-# nightmare discussion here https://stackoverflow.com/questions/38601/using-django-time-date-widgets-in-custom-form
 class MinimalSplitDateTimeMultiWidget(MultiWidget):
-
     def __init__(self, widgets=None, attrs=None):
         if widgets is None:
             if attrs is None:
@@ -22,7 +20,6 @@ class MinimalSplitDateTimeMultiWidget(MultiWidget):
             ]
         super().__init__(widgets, attrs)
 
-    # nabbing from https://docs.djangoproject.com/en/3.1/ref/forms/widgets/#django.forms.MultiWidget.decompress
     def decompress(self, value):
         if value:
             return [value.date(), value.strftime('%H:%M')]
@@ -30,7 +27,6 @@ class MinimalSplitDateTimeMultiWidget(MultiWidget):
 
     def value_from_datadict(self, data, files, name):
         date_str, time_str = super().value_from_datadict(data, files, name)
-        # DateField expects a single string that it can parse into a date.
 
         if date_str == time_str == '':
             return None

@@ -1,6 +1,12 @@
 {% extends "my_planner/base.html" %}
 {% block title %}Edit meeting{% endblock title%}
+{% block head%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'my_planner/css/meeting_detail.css' %}">
+{% endblock head%}
 {% block content %}
-<h2>{{object.title}}</h2>
-<h1>{{object.responsible_person.name}}</h1>
+<h1>Meeting title: {{object.title}}</h1>
+<h3>Responsible person : {{object.responsible_person.name}}, team {{object.responsible_person.get_duties_display}}</h3>
+<h3>Description: {{object.description}} ,category {{object.get_category_display}}</h3>
+<h3>Starts: {{object.start_time}} ends {{object.end_time}} type: {{object.get_type_display}}</h3>
 {% endblock content %}
