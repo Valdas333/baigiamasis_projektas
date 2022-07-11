@@ -1,5 +1,7 @@
 from django.db import models
 from django.urls import reverse
+from django.core.exceptions import ValidationError
+from django.utils import timezone
 
 
 class Person(models.Model):
@@ -37,7 +39,12 @@ class Meeting(models.Model):
     start_time = models.DateTimeField(blank=False)
     end_time = models.DateTimeField(blank=False)
     create_time = models.DateTimeField(auto_now_add=True, editable=False)
-    
+
+    def clean(self):
+        if self.start_time < timezone.now():
+            raise ValidationError({'start_time': 'The date cannot be in the past!'})
+        
+           
     def __str__(self):
         return f"Meet {self.title} is scheduled from {self.start_time} until {self.end_time}, created @{self.create_time}"
     
