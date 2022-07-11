@@ -1,10 +1,7 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.views.generic import TemplateView, ListView, UpdateView, CreateView, DetailView
-from .models import Meeting
-from .forms import CreateMeetingForm, UpdateMeetingForm
-from django.views.generic.edit import FormView
-from django.urls import reverse_lazy
+from django.views.generic import ListView, UpdateView, CreateView, DetailView, DeleteView
+from .models import Meeting, Person
+from .forms import CreateMeetingForm, UpdateMeetingForm, CreatePersonForm
+from django.urls import reverse_lazy, reverse
 
 
 class IndexPageListView(ListView):
@@ -27,4 +24,17 @@ class UpdateMeeting(UpdateView):
     model = Meeting
     form_class = UpdateMeetingForm
     template_name = 'my_planner/update_meeting.html'
+
+
+class DeleteMeeting(DeleteView):
+    model = Meeting
+    template_name = 'my_planner/delete_meeting_confirm.html' 
     success_url = reverse_lazy('index')
+
+
+class CreatePerson(CreateView):
+    model = Person
+    form_class = CreatePersonForm
+    template_name = 'my_planner/create_person.html'
+    success_url = reverse_lazy('index')
+    
