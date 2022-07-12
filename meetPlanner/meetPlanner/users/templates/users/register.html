@@ -1,0 +1,22 @@
+{% extends "users/users_base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<form class="form-signin" method="post">
+    {% csrf_token %}
+    <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72"
+        height="72">
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Create account</legend>
+            {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+        </div>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already registered? <a class="ml-2" href="">Sign in</a>
+            </small>
+        </div>
+    <p class="mt-5 mb-3 text-muted">&copy; 2021-2022</p>
+</form>
+{% endblock content %}
