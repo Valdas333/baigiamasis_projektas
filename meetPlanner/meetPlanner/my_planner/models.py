@@ -43,7 +43,8 @@ class Meeting(models.Model):
     def clean(self):
         if self.start_time < timezone.now():
             raise ValidationError({'start_time': 'The date cannot be in the past!'})
-        
+        if self.start_time >= self.end_time:
+            raise ValidationError({'end_time': 'The end time cannot be earler or equal than start time'})  
            
     def __str__(self):
         return f"Meet {self.title} is scheduled from {self.start_time} until {self.end_time}, created @{self.create_time}"
