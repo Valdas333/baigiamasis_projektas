@@ -1,6 +1,7 @@
-{% extends "users/users_base.html" %}
+{% extends "my_planner/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+<div class="container">
 <form class="form-signin" method="post">
     {% csrf_token %}
     <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72"
@@ -17,6 +18,8 @@
                 Already registered? <a class="ml-2" href="">Sign in</a>
             </small>
         </div>
+    </div>
     <p class="mt-5 mb-3 text-muted">&copy; 2021-2022</p>
+
 </form>
 {% endblock content %}

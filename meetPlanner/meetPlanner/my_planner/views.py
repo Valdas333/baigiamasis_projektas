@@ -1,7 +1,7 @@
 from django.views.generic import ListView, UpdateView, CreateView, DetailView, DeleteView
 from .models import Meeting, Person
 from .forms import CreateMeetingForm, UpdateMeetingForm, CreatePersonForm, UpdatePersonForm
-from django.urls import reverse_lazy, reverse
+from django.urls import reverse_lazy
 
 
 class IndexPageListView(ListView):
