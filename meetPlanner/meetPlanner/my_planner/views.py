@@ -2,6 +2,8 @@ from django.views.generic import ListView, UpdateView, CreateView, DetailView, D
 from .models import Meeting, Person
 from .forms import CreateMeetingForm, UpdateMeetingForm, CreatePersonForm, UpdatePersonForm
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 
 class IndexPageListView(ListView):
@@ -13,20 +15,20 @@ class IndexPageListView(ListView):
 class MeetingDetailView(DetailView):
     model = Meeting
     
- 
-class CreateMeeting(CreateView): 
+
+class CreateMeeting(LoginRequiredMixin, CreateView): 
     form_class = CreateMeetingForm
     template_name = 'my_planner/create_meeting.html'
     # success_url = reverse_lazy('create_meeting')
     
-    
-class UpdateMeeting(UpdateView):
+
+class UpdateMeeting(LoginRequiredMixin,UpdateView):
     model = Meeting
     form_class = UpdateMeetingForm
     template_name = 'my_planner/update_meeting.html'
 
 
-class DeleteMeeting(DeleteView):
+class DeleteMeeting(LoginRequiredMixin,DeleteView):
     model = Meeting
     template_name = 'my_planner/delete_meeting_confirm.html' 
     success_url = reverse_lazy('index')
@@ -38,7 +40,7 @@ class PersonListView(ListView):
     context_object_name = 'persons'    
 
 
-class CreatePerson(CreateView):
+class CreatePerson(LoginRequiredMixin, CreateView):
     model = Person
     form_class = CreatePersonForm
     template_name = 'my_planner/create_person.html'
@@ -49,14 +51,14 @@ class PersonDetailView(DetailView):
     model = Person
 
 
-class UpdatePerson(UpdateView):
+class UpdatePerson(LoginRequiredMixin, UpdateView):
     model = Person
     form_class = UpdatePersonForm
     template_name = 'my_planner/update_person.html'
     success_url = reverse_lazy('person_list')
     
 
-class DeletePerson(DeleteView):
+class DeletePerson(LoginRequiredMixin, DeleteView):
     model = Person
     template_name = 'my_planner/delete_person_confirm.html' 
     success_url = reverse_lazy('person_list')

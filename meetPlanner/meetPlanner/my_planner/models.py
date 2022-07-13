@@ -2,7 +2,7 @@ from django.db import models
 from django.urls import reverse
 from django.core.exceptions import ValidationError
 from django.utils import timezone
-
+import datetime
 
 class Person(models.Model):
     name = models.CharField('Name', max_length=100, blank=False)
@@ -50,8 +50,8 @@ class Meeting(models.Model):
         return f"Meet {self.title} is scheduled from {self.start_time} until {self.end_time}, created @{self.create_time}"
     
     def meeting_duration(self):
-        return self.end_time - self.start_time
-        
+        duration = self.end_time - self.start_time
+        return int(duration.total_seconds()/60)
         
     
     def get_absolute_url(self):
