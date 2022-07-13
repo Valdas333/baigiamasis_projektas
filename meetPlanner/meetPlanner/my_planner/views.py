@@ -8,7 +8,7 @@ class IndexPageListView(ListView):
     model = Meeting
     template_name = 'my_planner/index.html'
     context_object_name = 'meetings'
-
+    
 
 class MeetingDetailView(DetailView):
     model = Meeting

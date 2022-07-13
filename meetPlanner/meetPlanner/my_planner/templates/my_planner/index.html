@@ -3,7 +3,7 @@
 
 {% block content %}
 {% if meetings %}
-<h1>All meetings:</h1>  
+<h1 class="text-center">All meetings:</h1>  
   <div class="album py-5 bg-light">
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -18,7 +18,7 @@
                     <a href="{% url 'update_meeting' meeting.id %}" class="btn btn-primary">Edit</a>
                     <a href="{% url 'delete_meeting' meeting.id %}" class="btn btn-danger">Delete</a>
                 </div>
-                <small class="text-muted">9 mins</small>
+                <small class="text-muted">{{ meeting.meeting_duration }}</small>
               </div>
             </div>
           </div>

@@ -49,5 +49,12 @@ class Meeting(models.Model):
     def __str__(self):
         return f"Meet {self.title} is scheduled from {self.start_time} until {self.end_time}, created @{self.create_time}"
     
+    def meeting_duration(self):
+        return self.end_time - self.start_time
+        
+        
+    
     def get_absolute_url(self):
         return reverse('meeting_detail', kwargs={'pk':self.pk})
+
+    
