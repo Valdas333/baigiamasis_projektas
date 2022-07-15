@@ -58,10 +58,10 @@
         <a href="#" class="navbar-brand d-flex align-items-center">
           {% if user.is_authenticated %}
           <strong><a href="{% url 'logout' %}">Logout</a> </strong>
-          <strong><a href="{% url 'profile' %}">Profile</a> </strong>
+          <strong><a href="{% url 'person_detail' user.id %}">Profile</a> </strong>
           {% else %}
           <strong><a href="{% url 'login' %}">Login</a> </strong>
-          <strong><a href="{% url 'register' %}">Register</a> </strong>
+          <strong><a href="{% url 'create_person' %}">Register</a> </strong>
           {% endif %}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"

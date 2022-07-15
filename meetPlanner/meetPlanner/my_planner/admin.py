@@ -3,8 +3,8 @@ from .models import Person, Meeting
 # Register your models here.
 
 
-class PersonAdmin(admin.ModelAdmin):
-    list_display = ('name','surname','duties')
+# class PersonAdmin(admin.ModelAdmin):
+#     list_display = ('name','surname','duties')
     
     
 class MeetingAdmin(admin.ModelAdmin):
@@ -12,4 +12,4 @@ class MeetingAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Meeting, MeetingAdmin)
-admin.site.register(Person, PersonAdmin)
+# admin.site.register(Person, PersonAdmin)

@@ -2,22 +2,22 @@ from django.db import models
 from django.urls import reverse
 from django.core.exceptions import ValidationError
 from django.utils import timezone
-import datetime
+from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 
-class Person(models.Model):
-    name = models.CharField('Name', max_length=100, blank=False)
-    surname = models.CharField('Surname', max_length=100, blank=False)
+
+class Person(AbstractUser):
     DUTIES_FIXED_VALUES = [
         ('a', 'Developer'),
         ('b', 'Support'),
         ('c', 'Testing'),
         ('d', 'Management'),
     ]
-    duties = models.CharField('Duties', choices= DUTIES_FIXED_VALUES, blank=False, max_length=50)
-    email = models.EmailField('Email', max_length=254, blank=False)
+    duties = models.CharField('Duties', choices= DUTIES_FIXED_VALUES, blank=True, max_length=50)
+    images = models.ImageField(default='default.jpg', upload_to='profile_pics')
     
     def __str__(self):
-        return f"{self.name} {self.surname} {self.get_duties_display()}"
+        return f"{self.first_name} {self.last_name} {self.get_duties_display()}"
     
     
 class Meeting(models.Model):
