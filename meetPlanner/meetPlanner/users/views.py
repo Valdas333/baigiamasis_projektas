@@ -23,12 +23,12 @@ class PersonListView(ListView):
     
 class ProfileDetailView(DetailView):
     model = Person
-    template_name = 'my_planner/person_detail.html'
+    template_name = 'users/person_detail.html'
 
 
 class CreatePerson(LoginRequiredMixin, CreateView):
     form_class = UserRegisterForm
-    template_name = 'my_planner/create_person.html'
+    template_name = 'users/create_person.html'
     success_url = reverse_lazy('person_list')
    
    
@@ -37,31 +37,27 @@ class UpdatePerson(LoginRequiredMixin, UpdateView):
     form_class = PersonUpdateForm
     success_url = reverse_lazy('index')
     template_name = 'users/register.html'
-    # queryset = get_user_model().objects.all()
 
-    # def get_object(self, queryset=get_user_model().objects.all()):
-    #     return queryset.get(pk=self.request.user.pk)
-
-    # def form_valid(self, form):
-    #     messages.success(self.request,  ("User data has been updated successfully"))
-    #     return super().form_valid(form)    
+    def form_valid(self, form):
+        messages.success(self.request,  ("User data has been updated successfully"))
+        return super().form_valid(form)    
     
         
 class DeletePerson(LoginRequiredMixin, DeleteView):
     model = Person
-    template_name = 'my_planner/delete_person_confirm.html' 
+    template_name = 'users/delete_person_confirm.html' 
     success_url = reverse_lazy('person_list')
     
 
 class UpdatePersonProfile(LoginRequiredMixin, UpdateView):
     form_class = PersonProfileUpdateForm
     success_url = reverse_lazy('index')
-    template_name = 'users/register.html'
+    template_name = 'users/update_person.html'
     queryset = get_user_model().objects.all()
 
     def get_object(self, queryset=get_user_model().objects.all()):
         return queryset.get(pk=self.request.user.pk)
 
     def form_valid(self, form):
-        messages.success(self.request,  ("User data has been updated successfully"))
+        messages.success(self.request, ("User data has been updated successfully"))
         return super().form_valid(form)       

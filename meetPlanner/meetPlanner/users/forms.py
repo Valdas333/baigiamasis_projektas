@@ -16,10 +16,10 @@ class UserRegisterForm(UserCreationForm):
 
 class PersonUpdateForm(forms.ModelForm):
     email = forms.EmailField()
-
     class Meta:
         model = Person
-        fields = ("username", "email", "first_name", "last_name", )
+        # fields = '__all__'
+        fields = ("username", "email", "first_name", "last_name", "duties", "images" )
         field_classes = {"username": user_forms.UsernameField}
 
     def clean_email(self):
@@ -29,15 +29,14 @@ class PersonUpdateForm(forms.ModelForm):
         if not user_with_email.exists():
             return email
         else:
-            raise ValidationError(_('User with this email address already exists'))
+            raise ValidationError(('User with this email address already exists'))
         
 
 class PersonProfileUpdateForm(forms.ModelForm):
     email = forms.EmailField()
-
     class Meta:
         model = get_user_model()
-        fields = ("username", "email", "first_name", "last_name", )
+        fields = ("username", "email", "first_name", "last_name", "images")
         field_classes = {"username": user_forms.UsernameField}
 
     def clean_email(self):
