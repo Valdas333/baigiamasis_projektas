@@ -58,7 +58,7 @@
         <a href="#" class="navbar-brand d-flex align-items-center">
           {% if user.is_authenticated %}
           <strong><a href="{% url 'logout' %}">Logout</a> </strong>
-          <strong><a href="{% url 'person_detail' user.id %}">Profile</a> </strong>
+          <strong><a href="{% url 'update_person_profile' user.id %}">Profile</a> </strong>
           {% else %}
           <strong><a href="{% url 'login' %}">Login</a> </strong>
           <strong><a href="{% url 'create_person' %}">Register</a> </strong>

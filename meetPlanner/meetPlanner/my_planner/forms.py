@@ -1,8 +1,6 @@
 from django import forms
-from .models import Person, Meeting
+from .models import Meeting
 from .date_time_widget import MinimalSplitDateTimeMultiWidget
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-
 
 
 class CreateMeetingForm(forms.ModelForm):
@@ -33,10 +31,10 @@ class UpdateMeetingForm(forms.ModelForm):
 #         model = Person
 #         fields = '__all__'
         
-class PersonCreationForm(UserCreationForm):
-    class Meta:
-        model = Person
-        fields = '__all__'
+# class PersonCreationForm(UserCreationForm):
+#     class Meta:
+#         model = Person
+#         fields = '__all__'
         
 
         
