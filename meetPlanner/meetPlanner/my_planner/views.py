@@ -6,12 +6,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 
 
-
 class IndexPageListView(ListView):
     model = Meeting
     template_name = 'my_planner/index.html'
     context_object_name = 'meetings'
-    
+    paginate_by = 3    
 
 class MeetingDetailView(DetailView):
     model = Meeting

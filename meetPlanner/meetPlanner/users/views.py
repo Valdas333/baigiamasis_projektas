@@ -19,7 +19,7 @@ class PersonListView(ListView):
     model = Person
     template_name = 'my_planner/persons_list.html'
     context_object_name = 'persons'    
-    
+    paginate_by = 3   
     
 class ProfileDetailView(DetailView):
     model = Person

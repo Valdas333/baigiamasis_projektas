@@ -2,7 +2,6 @@ from django.db import models
 from django.urls import reverse
 from django.core.exceptions import ValidationError
 from django.utils import timezone
-from django.contrib.auth.models import User
 from django.contrib.auth.models import AbstractUser
 
 
@@ -52,8 +51,7 @@ class Meeting(models.Model):
     def meeting_duration(self):
         duration = self.end_time - self.start_time
         return int(duration.total_seconds()/60)
-        
-    
+           
     def get_absolute_url(self):
         return reverse('meeting_detail', kwargs={'pk':self.pk})
 
