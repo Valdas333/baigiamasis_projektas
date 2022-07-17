@@ -1,8 +1,9 @@
 {% extends "my_planner/base.html" %}
+{% load i18n %}
 {% block content %}
 {% if user.is_authenticated %}
     <h1 class="text-center">{{ user.username }}</h1>
 {% else%}
-<h1 class="text-center"><a href="{% url 'login' %}">Log in to display</a></h1>
+<h1 class="text-center"><a href="{% url 'login' %}">{% trans 'log in to display'|capfirst%}</a></h1>
 {% endif %}
 {% endblock content %}

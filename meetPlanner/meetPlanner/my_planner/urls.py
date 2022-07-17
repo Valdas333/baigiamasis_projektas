@@ -4,6 +4,7 @@ from .views import (CreateMeeting, DeleteMeeting,
                     UpdateMeeting)
 
 
+
 urlpatterns = [
     path('', IndexPageListView.as_view(),  name='index'),
     path('create_meeting/', CreateMeeting.as_view(), name='create_meeting'),

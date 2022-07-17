@@ -1,9 +1,10 @@
 {% extends "my_planner/base.html" %}
+{% load i18n %}
 {% block content %}
-<h2> Nice to meet you , see you soon!</h2>
+<h2> {% trans 'nice to meet you , see you soon!'|capfirst%}</h2>
         <div class="border-top pt-3">
             <small class="text-muted">
-                <a href="{% url 'login' %}">Log in Again</a>
+                <a href="{% url 'login' %}">{% trans 'log in Again'|capfirst%}</a>
             </small>
         </div>
 {% endblock content %}

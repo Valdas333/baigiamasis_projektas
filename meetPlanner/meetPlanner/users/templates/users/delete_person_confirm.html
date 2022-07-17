@@ -1,16 +1,17 @@
 {% extends "my_planner/base.html" %}
-{% block title %}Confirm delete{% endblock title%}
+{% load i18n %}
+{% block title %}{% endblock title%}
 {% block content %}
 <div>
     <form method="post">
         {% csrf_token %}
         <fieldset class="form-group">
-            <legend class="border-bottom mb-4">Delete person information</legend>
-            <h2>Are you are sure to delete this"{{object.title}}" information</h2>
+            <legend class="border-bottom mb-4">{% trans 'delete person information'|capfirst %}</legend>
+            <h2>{% trans 'are you are sure to delete this'|capfirst %}" {{object.title}}" {% trans 'information' %}</h2>
         </fieldset>
             <div class="form-group">
-               <button class ="btn btn-outline-danger" type="submit">Delete</button> 
-               <a class ="btn btn-outline-secondary" href="{% url 'person_list' %}">Cancel</a> 
+               <button class ="btn btn-outline-danger" type="submit">{% trans 'delete'|capfirst %}</button> 
+               <a class ="btn btn-outline-secondary" href="{% url 'person_list' %}">{% trans 'cancel'|capfirst %}</a> 
             </div>
     </form>
 </div>

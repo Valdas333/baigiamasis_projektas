@@ -4,6 +4,7 @@ from .forms import CreateMeetingForm, UpdateMeetingForm
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
+from django.utils.translation import gettext_lazy as _
 
 
 class IndexPageListView(ListView):
@@ -21,7 +22,7 @@ class CreateMeeting(LoginRequiredMixin, CreateView):
     template_name = 'my_planner/create_meeting.html'
     
     def form_valid(self, form):
-        messages.success(self.request, ("Meeting created successfully, \n details:"))
+        messages.success(self.request, (_("Meeting created successfully")))
         return super().form_valid(form)     
     
 

@@ -1,9 +1,10 @@
 {% extends "my_planner/base.html" %}
-{% block title %}Create person{% endblock title%}
+{% load i18n %}
+{% block title %}{% trans 'create person'|capfirst %}{% endblock title%}
 {% block content %}
 <form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" value="Save">Create person</button>
+    <button type="submit" value="Save">{% trans 'create person'|capfirst %}</button>
 </form>
 {% endblock content %}

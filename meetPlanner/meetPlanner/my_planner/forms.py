@@ -20,22 +20,7 @@ class UpdateMeetingForm(forms.ModelForm):
         widgets = {
             'start_time': MinimalSplitDateTimeMultiWidget(),
             'end_time': MinimalSplitDateTimeMultiWidget(),
-            }
-
-
-# class CreatePersonForm(forms.ModelForm):
-#     # class Meta:
-#     #     model = Person
-#     #     fields = ('name', 'surname', 'duties','email')
-#     class Meta:
-#         model = Person
-#         fields = '__all__'
-        
-# class PersonCreationForm(UserCreationForm):
-#     class Meta:
-#         model = Person
-#         fields = '__all__'
-        
+            }      
 
         
         

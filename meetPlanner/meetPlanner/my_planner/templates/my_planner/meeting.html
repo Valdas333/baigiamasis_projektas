@@ -1,11 +1,12 @@
 {% extends "my_planner/base.html" %}
-{% block title %}Meeting details{% endblock title%}
+{% load i18n %}
+{% block title %}{% trans "Meeting details" %}{% endblock title%}
 
 {% block content %}
 <div>
     <div>
         <div>
-            <h3>View meeting:</h3>
+            <h3>{% trans "View meeting" %}:</h3>
             <h5>{{ meeting.title | upper }}</h5>
         </div>
         <ul>
@@ -16,12 +17,12 @@
                         role="button"
                         onclick="location.href='#'">
                         {{ meeting.title }}
-                        (Due {{ meeting.end_time}})
+                        ({% trans "Due" %} {{ meeting.end_time}})
                     </div>
                 </div>
             </li>
             {% empty %}
-            <p>Empty meeting</p>
+            <p>{% trans "Empty meeting" %}</p>
             {% endfor %}
         </ul>
         <p>

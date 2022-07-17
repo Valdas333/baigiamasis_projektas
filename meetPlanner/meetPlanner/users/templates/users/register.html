@@ -1,4 +1,5 @@
 {% extends "my_planner/base.html" %}
+{% load i18n %}
 {% load crispy_forms_tags %}
 {% block content %}
 <div class="container">
@@ -7,15 +8,15 @@
     <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72"
         height="72">
         <fieldset class="form-group">
-            <legend class="border-bottom mb-4">Create account</legend>
+            <legend class="border-bottom mb-4">{% trans 'create account'|capfirst %}</legend>
             {{ form|crispy }}
         </fieldset>
         <div class="form-group">
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">{% trans 'sign up'|capfirst %}</button>
         </div>
         <div class="border-top pt-3">
             <small class="text-muted">
-                Already registered? <a class="ml-2" href="">Sign in</a>
+                {% trans 'sign in already registered? '|capfirst %}<a class="ml-2" href="">{% trans 'sign in'|capfirst %}</a>
             </small>
         </div>
     </div>

@@ -1,6 +1,7 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>{% load i18n %}
+<!-- {% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %} -->
+<html lang="LANGUAGE_CODE">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,19 +36,20 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-4 offset-md-1 py-4">
-            <h4 class="text-white">Persons</h4>
+            <h4 class="text-white">{% trans "persons"|capfirst %}</h4>
             <ul class="list-unstyled">
-              <li><a href="{% url 'person_list' %}" class="text-white">Persons</a></li>
-              <li><a href="{% url 'create_person' %}" class="text-white">Create a person</a></li>
+              <li><a href="{% url 'person_list' %}" class="text-white">{% trans "persons"|capfirst %}</a></li>
+              <li><a href="{% url 'create_person' %}" class="text-white">{% trans "create a person"|capfirst %}</a></li>
               <li><a href="#" class="text-white">Email me</a></li>
             </ul>
           </div>
           <div class="col-sm-4 offset-md-1 py-4">
-            <h4 class="text-white">Meetings</h4>
+            <h4 class="text-white">{% trans "meetings"|capfirst %}</h4>
             <ul class="list-unstyled">
-              <li><a href="{% url 'index' %}" class="text-white">Meetings</a></li>
-              <li><a href="{% url 'create_meeting' %}" class="text-white">Create a meeting</a></li>
+              <li><a href="{% url 'index' %}" class="text-white">{% trans "meetings"|capfirst %}</a></li>
+              <li><a href="{% url 'create_meeting' %}" class="text-white">{% trans "create a meeting"|capfirst %}</a></li>
               <li><a href="#" class="text-white">Email me</a></li>
+              
             </ul>
           </div>
         </div>
@@ -55,13 +57,27 @@
     </div>
     <div class="navbar navbar-dark bg-dark shadow-sm">
       <div class="container">
+        <form action="{% url 'set_language'%}" method='post'>{% csrf_token%}
+          <input type="hidden" name="text" value="{{ redirect_to }}">
+          <select name="language">
+            {% get_available_languages as LANGUAGES %}
+            {% get_language_info_list for LANGUAGES as languages %}
+            {% for language in languages %}
+              <option value="{{language.code}}" {% if language.code == LANGUAGE_CODE %} selected {% endif %}>
+                {{language.name_local}} {{language.code}}
+              </option>
+            {% endfor %}
+          </select>
+          <input type="submit" value="Go">
+          <!-- <button type="submit" class="btn btn-info">{% trans "set"|capfirst %}</button> -->
+        </form>
         <a href="#" class="navbar-brand d-flex align-items-center">
           {% if user.is_authenticated %}
-          <strong><a href="{% url 'logout' %}">Logout</a> </strong>
-          <strong><a href="{% url 'update_person_profile' user.id %}">Profile</a> </strong>
+          <strong><a href="{% url 'logout' %}">{% trans "logout"|capfirst %}</a> </strong>
+          <strong><a href="{% url 'update_person_profile' user.id %}">{% trans "profile"|capfirst %}</a> </strong>
           {% else %}
-          <strong><a href="{% url 'login' %}">Login</a> </strong>
-          <strong><a href="{% url 'create_person' %}">Register</a> </strong>
+          <strong><a href="{% url 'login' %}">{% trans "login"|capfirst %}</a> </strong>
+          <strong><a href="{% url 'create_person' %}">{% trans "register"|capfirst %}</a> </strong>
           {% endif %}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
@@ -82,8 +98,8 @@
           <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator,
             etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
           <p>
-            <a href="{% url 'person_list' %}" class="btn btn-primary my-2">Person list</a>
-            <a href="{% url 'index' %}" class="btn btn-secondary my-2">Meeting list</a>
+            <a href="{% url 'person_list' %}" class="btn btn-primary my-2">{% trans "person list"|capfirst %}</a>
+            <a href="{% url 'index' %}" class="btn btn-secondary my-2">{% trans "meeting list"|capfirst %}</a>
           </p>
         </div>
       </div>
@@ -98,7 +114,6 @@
     {% block content %}
     <div class="album py-5 bg-light">
       <div class="container">
-
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
           <div class="col">
             <div class="card shadow-sm">

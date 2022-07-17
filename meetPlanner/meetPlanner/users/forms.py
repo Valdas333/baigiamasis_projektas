@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 from django.contrib.auth import get_user_model, forms as user_forms
 from my_planner.models import Person
+from django.utils.translation import gettext_lazy as _
 User = get_user_model()
 
 
@@ -18,7 +19,6 @@ class PersonUpdateForm(forms.ModelForm):
     email = forms.EmailField()
     class Meta:
         model = Person
-        # fields = '__all__'
         fields = ("username", "email", "first_name", "last_name", "duties", "images" )
         field_classes = {"username": user_forms.UsernameField}
 
@@ -29,7 +29,7 @@ class PersonUpdateForm(forms.ModelForm):
         if not user_with_email.exists():
             return email
         else:
-            raise ValidationError(('User with this email address already exists'))
+            raise ValidationError(_('User with this email address already exists'))
         
 
 class PersonProfileUpdateForm(forms.ModelForm):
@@ -46,4 +46,4 @@ class PersonProfileUpdateForm(forms.ModelForm):
         if not user_with_email.exists():
             return email
         else:
-            raise ValidationError(('User with this email address already exists'))        
+            raise ValidationError(_('User with this email address already exists'))        

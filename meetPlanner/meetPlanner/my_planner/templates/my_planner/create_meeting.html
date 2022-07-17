@@ -1,9 +1,10 @@
 {% extends "my_planner/base.html" %}
-{% block title %}Create meeting{% endblock title%}
+{% load i18n %}
+{% block title %}{% trans "create meeting"|capfirst %}{% endblock title%}
 {% block content %}
 <form action="{% url 'create_meeting' %}" method="post">
     {% csrf_token %}
     {{ form.as_p}}
-    <button type="submit" value="Save">Create meeting</button>
+    <button type="submit" value="Save">{% trans "create meeting"|capfirst %}</button>
 </form>
 {% endblock content %}

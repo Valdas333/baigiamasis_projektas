@@ -1,12 +1,12 @@
 from django.contrib import messages
 from django.contrib.auth import get_user_model
-from django.shortcuts import redirect
 from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView
 from .forms import UserRegisterForm, PersonUpdateForm, PersonProfileUpdateForm
 from django.urls import reverse_lazy
 User = get_user_model()
 from my_planner.models import Person
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.utils.translation import gettext_lazy as _
 
 
 class UserCreate(CreateView):
@@ -39,7 +39,7 @@ class UpdatePerson(LoginRequiredMixin, UpdateView):
     template_name = 'users/register.html'
 
     def form_valid(self, form):
-        messages.success(self.request,  ("User data has been updated successfully"))
+        messages.success(self.request,  _("User data has been updated successfully"))
         return super().form_valid(form)    
     
         
@@ -59,5 +59,5 @@ class UpdatePersonProfile(LoginRequiredMixin, UpdateView):
         return queryset.get(pk=self.request.user.pk)
 
     def form_valid(self, form):
-        messages.success(self.request, ("User data has been updated successfully"))
+        messages.success(self.request, _("User data has been updated successfully"))
         return super().form_valid(form)       

@@ -1,14 +1,15 @@
 {% extends "my_planner/base.html" %}
-{% block title %}Landing page{% endblock title%}
+{% load i18n %}
+{% block title %}{% trans 'Persons list' %}{% endblock title%}
 
 {% block content %}
 {% if persons %}
-<h1 class="text-center">All persons:</h1>
+<h1 class="text-center">{% trans 'all persons'|capfirst %}:</h1>
 
   <div class="album py-5 bg-light">
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        {% for person in persons%}
+        {% for person in persons %}
         <div class="col">
           <div class="card shadow-sm" >
             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"><a href="{% url 'person_detail' person.id %}">{{ person.first_name }} {{ person.last_name }}</a></text></svg>
@@ -16,19 +17,19 @@
               <p class="card-text">{{ person.get_duties_display }}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                    <a href="{% url 'update_person' person.id %}" class="btn btn-primary">Edit</a>
-                    <a href="{% url 'delete_person' person.id %}" class="btn btn-danger">Delete</a>
+                    <a href="{% url 'update_person' person.id %}" class="btn btn-primary">{% trans "Edit" %}</a>
+                    <a href="{% url 'delete_person' person.id %}" class="btn btn-danger">{% trans "Delete" %}</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        {% endfor%}
+        {% endfor %}
       </div>
     </div>
   </div>
   {% else%}
-  <h1>No meets</h1>
+  <h1>{% trans 'No meets' %}</h1>
 {% endif %}
 {% if is_paginated %}
 
@@ -46,8 +47,8 @@
   {% endfor %}
 
   {% if page_obj.has_next %}
-  <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
-  <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+  <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">{% trans 'next'|capfirst %}</a>
+  <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">{% trans 'last'|capfirst %}</a>
   {% endif %}
 
   {% endif %}

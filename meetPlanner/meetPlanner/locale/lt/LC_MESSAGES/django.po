@@ -1,0 +1,424 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-17 20:11+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
+"11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
+"1 : n % 1 != 0 ? 2: 3);\n"
+
+#: .\my_planner\models.py:11
+msgid "Developer"
+msgstr "Programuotojas"
+
+#: .\my_planner\models.py:12
+msgid "Support"
+msgstr "Pagalba"
+
+#: .\my_planner\models.py:13
+msgid "Testing"
+msgstr "Testavimas"
+
+#: .\my_planner\models.py:14
+msgid "Management"
+msgstr "Vadyba"
+
+#: .\my_planner\models.py:16
+msgid "Duties"
+msgstr "Pareigos"
+
+#: .\my_planner\models.py:17
+msgid "Images"
+msgstr "Paveiklsiukai"
+
+#: .\my_planner\models.py:23
+msgid "Person"
+msgstr "Asmuo"
+
+#: .\my_planner\models.py:24
+msgid "Persons"
+msgstr "Asmenys"
+
+#: .\my_planner\models.py:28
+msgid "Title"
+msgstr "Pavadinimas"
+
+#: .\my_planner\models.py:29
+msgid "Responsible person"
+msgstr "Atsakingas asmuo"
+
+#: .\my_planner\models.py:30
+msgid "Description"
+msgstr "Aprašymas"
+
+#: .\my_planner\models.py:30
+msgid "Description about 50 simbols"
+msgstr "Aprašymas apie 50 simbolių"
+
+#: .\my_planner\models.py:37
+msgid "Category"
+msgstr "Kategorija"
+
+#: .\my_planner\models.py:39
+msgid "Live"
+msgstr "Gyvai"
+
+#: .\my_planner\models.py:40
+msgid "InPerson"
+msgstr "Asmeniskai"
+
+#: .\my_planner\models.py:42
+msgid "Type"
+msgstr "Tipas"
+
+#: .\my_planner\models.py:43
+msgid "Meeting start time"
+msgstr "Susitikimo pradzios laikas"
+
+#: .\my_planner\models.py:44
+msgid "Meeting end time"
+msgstr "Susitikimo pabaigos laikos"
+
+#: .\my_planner\models.py:45
+msgid "Meeting create time"
+msgstr "Susitikimo sukurimo laikas"
+
+#: .\my_planner\models.py:49
+msgid "The date cannot be in the past!"
+msgstr "Data negali būti praeityje"
+
+#: .\my_planner\models.py:51
+msgid "The end time cannot be earler or equal than start time"
+msgstr "Pabaigos laikas negali būti ankstesni nei pradžios"
+
+#: .\my_planner\models.py:64
+msgid "Meeting"
+msgstr "Susitikimas"
+
+#: .\my_planner\models.py:65
+msgid "Meetings"
+msgstr "Susitikimas"
+
+#: .\my_planner\templates\my_planner\base.html:39
+#: .\my_planner\templates\my_planner\base.html:41
+msgid "persons"
+msgstr "asmenys"
+
+#: .\my_planner\templates\my_planner\base.html:42
+msgid "create a person"
+msgstr "sukurti asmenys"
+
+#: .\my_planner\templates\my_planner\base.html:47
+#: .\my_planner\templates\my_planner\base.html:49
+msgid "meetings"
+msgstr "susitikimai"
+
+#: .\my_planner\templates\my_planner\base.html:50
+msgid "create a meeting"
+msgstr "sukurti susitikima"
+
+#: .\my_planner\templates\my_planner\base.html:72
+msgid "set"
+msgstr "nustatyti"
+
+#: .\my_planner\templates\my_planner\base.html:76
+msgid "logout"
+msgstr "atsijungti"
+
+#: .\my_planner\templates\my_planner\base.html:77
+msgid "profile"
+msgstr "profilis"
+
+#: .\my_planner\templates\my_planner\base.html:79
+#: .\users\templates\users\login.html:9 .\users\templates\users\login.html:13
+msgid "login"
+msgstr "prisijunti"
+
+#: .\my_planner\templates\my_planner\base.html:80
+msgid "register"
+msgstr "registruotis"
+
+#: .\my_planner\templates\my_planner\base.html:101
+msgid "person list"
+msgstr "asmenų sarasas"
+
+#: .\my_planner\templates\my_planner\base.html:102
+msgid "meeting list"
+msgstr "susitikimų sąrašas"
+
+#: .\my_planner\templates\my_planner\create_meeting.html:3
+#: .\my_planner\templates\my_planner\create_meeting.html:8
+#: .\my_planner\templates\my_planner\update_meeting.html:3
+msgid "create meeting"
+msgstr "sukurti susitikimą"
+
+#: .\my_planner\templates\my_planner\delete_meeting_confirm.html:3
+#: .\my_planner\templates\my_planner\delete_meeting_confirm.html:9
+msgid "confirm delete"
+msgstr "patvirtinti ištrinimą"
+
+#: .\my_planner\templates\my_planner\delete_meeting_confirm.html:10
+#: .\users\templates\users\delete_person_confirm.html:10
+msgid "are you are sure to delete this"
+msgstr "ar tikrai norite ištrinti"
+
+#: .\my_planner\templates\my_planner\delete_meeting_confirm.html:10
+#, fuzzy
+#| msgid "meetings"
+msgid "meeting"
+msgstr "susitikimai"
+
+#: .\my_planner\templates\my_planner\delete_meeting_confirm.html:14
+#: .\users\templates\users\delete_person_confirm.html:14
+msgid "cancel"
+msgstr "nutraukti"
+
+#: .\my_planner\templates\my_planner\index.html:3
+msgid "landing page"
+msgstr "pagrindinis puslapis"
+
+#: .\my_planner\templates\my_planner\index.html:7
+#, fuzzy
+#| msgid "meetings"
+msgid "all meetings"
+msgstr "susitikimai"
+
+#: .\my_planner\templates\my_planner\index.html:24
+msgid "edit"
+msgstr "redaguoti"
+
+#: .\my_planner\templates\my_planner\index.html:25
+#: .\users\templates\users\delete_person_confirm.html:13
+#, fuzzy
+#| msgid "confirm delete"
+msgid "delete"
+msgstr "patvirtinti ištrinimą"
+
+#: .\my_planner\templates\my_planner\index.html:27
+msgid "mins"
+msgstr "mins"
+
+#: .\my_planner\templates\my_planner\index.html:37
+#, fuzzy
+#| msgid "meetings"
+msgid "no meets"
+msgstr "susitikimai"
+
+#: .\my_planner\templates\my_planner\index.html:55
+#: .\my_planner\templates\my_planner\persons_list.html:50
+msgid "next"
+msgstr "sekantis"
+
+#: .\my_planner\templates\my_planner\index.html:56
+#: .\my_planner\templates\my_planner\persons_list.html:51
+msgid "last"
+msgstr "paskutinis"
+
+#: .\my_planner\templates\my_planner\meeting.html:3
+#, fuzzy
+#| msgid "Meeting end time"
+msgid "Meeting details"
+msgstr "Susitikimo pabaigos laikos"
+
+#: .\my_planner\templates\my_planner\meeting.html:9
+#, fuzzy
+#| msgid "meetings"
+msgid "View meeting"
+msgstr "susitikimai"
+
+#: .\my_planner\templates\my_planner\meeting.html:20
+#, fuzzy
+#| msgid "Duties"
+msgid "Due"
+msgstr "Pareigos"
+
+#: .\my_planner\templates\my_planner\meeting.html:25
+#, fuzzy
+#| msgid "meetings"
+msgid "Empty meeting"
+msgstr "susitikimai"
+
+#: .\my_planner\templates\my_planner\meeting_detail.html:3
+#, fuzzy
+#| msgid "meeting list"
+msgid "edit meeting|capfirst"
+msgstr "susitikimų sąrašas"
+
+#: .\my_planner\templates\my_planner\meeting_detail.html:10
+#, fuzzy
+#| msgid "Responsible person"
+msgid "responsible person"
+msgstr "Atsakingas asmuo"
+
+#: .\my_planner\templates\my_planner\meeting_detail.html:10
+msgid "team"
+msgstr "komanda"
+
+#: .\my_planner\templates\my_planner\meeting_detail.html:11
+#, fuzzy
+#| msgid "Description"
+msgid "description"
+msgstr "Aprašymas"
+
+#: .\my_planner\templates\my_planner\meeting_detail.html:11
+#, fuzzy
+#| msgid "Category"
+msgid "category"
+msgstr "Kategorija"
+
+#: .\my_planner\templates\my_planner\meeting_detail.html:12
+msgid "starts"
+msgstr "prasideda"
+
+#: .\my_planner\templates\my_planner\meeting_detail.html:12
+msgid "ends"
+msgstr "pasibaigia"
+
+#: .\my_planner\templates\my_planner\meeting_detail.html:12
+msgid "type"
+msgstr "tipas"
+
+#: .\my_planner\templates\my_planner\persons_list.html:3
+#, fuzzy
+#| msgid "person list"
+msgid "Persons list"
+msgstr "Asmenų sarasas"
+
+#: .\my_planner\templates\my_planner\persons_list.html:7
+#, fuzzy
+#| msgid "persons"
+msgid "all persons"
+msgstr "visi asmenys"
+
+#: .\my_planner\templates\my_planner\persons_list.html:20
+msgid "Edit"
+msgstr "Redaguoti"
+
+#: .\my_planner\templates\my_planner\persons_list.html:21
+msgid "Delete"
+msgstr "Ištrinti"
+
+#: .\my_planner\templates\my_planner\persons_list.html:32
+#, fuzzy
+#| msgid "meetings"
+msgid "No meets"
+msgstr "Nėra susitikimų"
+
+#: .\my_planner\templates\my_planner\update_meeting.html:8
+#, fuzzy
+#| msgid "create meeting"
+msgid "update meeting"
+msgstr "sukurti susitikimą"
+
+#: .\my_planner\views.py:25
+#, fuzzy
+#| msgid "Meeting create time"
+msgid "Meeting created successfully"
+msgstr "Susitikimo sukūrimo laikas"
+
+#: .\users\forms.py:32 .\users\forms.py:49
+msgid "User with this email address already exists"
+msgstr "Jau yra vartotojas su tokiu el.paštu"
+
+#: .\users\templates\users\create_person.html:3
+#: .\users\templates\users\create_person.html:8
+#, fuzzy
+#| msgid "create a person"
+msgid "create person"
+msgstr "sukurti asmenys"
+
+#: .\users\templates\users\delete_person_confirm.html:9
+msgid "delete person information"
+msgstr "ištrinti informaciją apie asmenį"
+
+#: .\users\templates\users\delete_person_confirm.html:10
+msgid "information"
+msgstr "informacija"
+
+#: .\users\templates\users\login.html:18
+msgid "need An Account?"
+msgstr "reikia paskyros"
+
+#: .\users\templates\users\login.html:18
+msgid "sign Up Now"
+msgstr "prisijungti"
+
+#: .\users\templates\users\logout.html:4
+msgid "nice to meet you , see you soon!"
+msgstr "buvo malonu susitikti, iki!"
+
+#: .\users\templates\users\logout.html:7
+msgid "log in Again"
+msgstr "prisijungti vėl"
+
+#: .\users\templates\users\person_detail.html:3
+#, fuzzy
+#| msgid "person list"
+msgid "view person details"
+msgstr "asmenų sarasas"
+
+#: .\users\templates\users\person_detail.html:9
+#, fuzzy
+#| msgid "persons"
+msgid "person name"
+msgstr "asmenys"
+
+#: .\users\templates\users\person_detail.html:9
+msgid "surname"
+msgstr "pavardė"
+
+#: .\users\templates\users\person_detail.html:10
+#, fuzzy
+#| msgid "Duties"
+msgid "duties"
+msgstr "Pareigos"
+
+#: .\users\templates\users\person_detail.html:11
+msgid "email"
+msgstr "el.paštas"
+
+#: .\users\templates\users\profile.html:7
+msgid "log in to display"
+msgstr "jei norite matyti prisijungkite"
+
+#: .\users\templates\users\register.html:11
+#, fuzzy
+#| msgid "create a person"
+msgid "create account"
+msgstr "sukurti asmenys"
+
+#: .\users\templates\users\register.html:15
+msgid "sign up"
+msgstr "prisijungti"
+
+#: .\users\templates\users\register.html:19
+msgid "sign in already registered? "
+msgstr "jau esate prisiregistravę"
+
+#: .\users\templates\users\register.html:19
+msgid "sign in"
+msgstr "prisijungti"
+
+#: .\users\templates\users\update_person.html:3
+#: .\users\templates\users\update_person.html:8
+#, fuzzy
+#| msgid "create a person"
+msgid "update person "
+msgstr "sukurti asmenys"
+
+#: .\users\views.py:42 .\users\views.py:62
+msgid "User data has been updated successfully"
+msgstr "Informacija sėkmingai atnaujinta"
