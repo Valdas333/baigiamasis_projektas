@@ -2,9 +2,9 @@
 {% load i18n %}
 {% block title %}{% trans 'update person '|capfirst %}{% endblock title%}
 {% block content %}
-<form action="" method="post">
+<form method="POST" enctype="multipart/form-data">>
     {% csrf_token %}
     {{ form.as_p}}
-    <button type="submit" value="Save">{% trans 'update person '|capfirst %}{</button>
+    <button >{% trans 'update person '|capfirst %}{</button>
 </form>
 {% endblock content %}

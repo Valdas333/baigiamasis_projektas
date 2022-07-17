@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <div class="container">
-<form class="form-signin" method="post">
+<form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72"
         height="72">

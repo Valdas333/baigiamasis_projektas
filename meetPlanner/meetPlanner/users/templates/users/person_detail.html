@@ -3,10 +3,12 @@
 {% block title %}{% trans 'view person details'|capfirst%}{% endblock title%}
 {% block head%}
 {% load static %}
+
 <link rel="stylesheet" href="{% static 'my_planner/css/meeting_detail.css' %}">
 {% endblock head%}
 {% block content %}
+<img src="{{ object.images.url }}">
 <h1>{% trans 'person name'|capfirst%} {{object.first_name}} {% trans 'surname' %} {{object.last_name}}</h1>
-<h3>{% trans 'duties'|capfirst%} {{object.get_duties_display}}</h2>
-<h3>{% trans 'email'|capfirst%}  {{object.email}}</h2>
+<h3>{% trans 'duties'|capfirst %} {{object.get_duties_display}}</h2>
+<h3>{% trans 'email'|capfirst %}  {{object.email}}</h2>
 {% endblock content %}
