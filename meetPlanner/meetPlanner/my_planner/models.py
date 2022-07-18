@@ -2,11 +2,13 @@ from django.db import models
 from django.urls import reverse
 from django.core.exceptions import ValidationError
 from django.utils import timezone
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
 from PIL import Image
 
-class Person(AbstractUser):
+
+class Person(models.Model):
+    user = models.OneToOneField(User, related_name='person', on_delete=models.CASCADE, blank=True, null=True)
     DUTIES_FIXED_VALUES = (
         ('a', _('Developer')),
         ('b', _('Support')),
@@ -16,8 +18,8 @@ class Person(AbstractUser):
     duties = models.CharField(_('Duties'), choices= DUTIES_FIXED_VALUES, blank=True, max_length=50)
     images = models.ImageField(_('Images'), default='default.jpg', upload_to='profile')
     
-    def __str__(self):
-        return f"{self.first_name} {self.last_name} {self.get_duties_display()}"
+    # def __str__(self):
+    #     return f"{self.user.first_name} {self.user.last_name} {self.get_duties_display()}"
   
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)

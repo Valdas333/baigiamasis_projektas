@@ -5,12 +5,12 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth import get_user_model, forms as user_forms
 from my_planner.models import Person
 from django.utils.translation import gettext_lazy as _
-User = get_user_model()
 
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
     class Meta:
+
         model = User
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', )       
 
@@ -18,8 +18,9 @@ class UserRegisterForm(UserCreationForm):
 class PersonUpdateForm(forms.ModelForm):
     email = forms.EmailField()
     class Meta:
-        model = Person
-        fields = ("username", "email", "first_name", "last_name", "duties", "images" )
+        model = User
+
+        fields = ("username", "email", "first_name", "last_name", )
         field_classes = {"username": user_forms.UsernameField}
 
     def clean_email(self):
@@ -35,8 +36,9 @@ class PersonUpdateForm(forms.ModelForm):
 class PersonProfileUpdateForm(forms.ModelForm):
     email = forms.EmailField()
     class Meta:
-        model = get_user_model()
-        fields = ("username", "email", "first_name", "last_name", "images")
+        model = User
+
+        fields = ("username", "email", "first_name", "last_name", )
         field_classes = {"username": user_forms.UsernameField}
 
     def clean_email(self):
@@ -47,3 +49,22 @@ class PersonProfileUpdateForm(forms.ModelForm):
             return email
         else:
             raise ValidationError(_('User with this email address already exists'))        
+
+
+class ExtendedUserUpdateForm(UserCreationForm):  
+    class Meta:
+        model = User
+        fields = ('email', 'username', )
+        
+    # def save(self, commit=True):
+    #     user = super().save(commit=False)
+    #     user.email = self.cleaned_data['email'] 
+         
+    
+class UserProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Person
+        fields = ('images', )
+
+
+        

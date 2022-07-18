@@ -1,4 +1,4 @@
-from django.views.generic import ListView, UpdateView, CreateView, DetailView, DeleteView
+from django.views.generic import ListView, UpdateView, CreateView, DetailView, DeleteView, TemplateView
 from .models import Meeting
 from .forms import CreateMeetingForm, UpdateMeetingForm
 from django.urls import reverse_lazy
@@ -37,3 +37,5 @@ class DeleteMeeting(LoginRequiredMixin,DeleteView):
     model = Meeting
     template_name = 'my_planner/delete_meeting_confirm.html' 
     success_url = reverse_lazy('index')
+    
+    
