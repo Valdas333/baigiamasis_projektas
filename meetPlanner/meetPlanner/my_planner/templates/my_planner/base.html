@@ -77,7 +77,7 @@
           <strong><a href="{% url 'update_person_profile' user.id %}">{% trans "profile"|capfirst %}</a> </strong>
           {% else %}
           <strong><a href="{% url 'login' %}">{% trans "login"|capfirst %}</a> </strong>
-          <strong><a href="{% url 'create_person' %}">{% trans "register"|capfirst %}</a> </strong>
+          <strong><a href="{% url 'create_user' %}">{% trans "register"|capfirst %}</a> </strong>
           {% endif %}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"

@@ -3,23 +3,42 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 from django.contrib.auth import get_user_model, forms as user_forms
-from my_planner.models import Person
 from django.utils.translation import gettext_lazy as _
+
+
+
+
+from my_planner.models import Person
+
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'first_name', 'last_name')  
+
+class EditProfileForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = '__all__'
+   
+        
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Person
+        fields = '__all__'
 
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
     class Meta:
-
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', )       
+        fields = ('username', 'first_name', 'email', 'password1', 'password2', )       
 
 
 class PersonUpdateForm(forms.ModelForm):
     email = forms.EmailField()
     class Meta:
         model = User
-
         fields = ("username", "email", "first_name", "last_name", )
         field_classes = {"username": user_forms.UsernameField}
 
@@ -37,8 +56,8 @@ class PersonProfileUpdateForm(forms.ModelForm):
     email = forms.EmailField()
     class Meta:
         model = User
-
-        fields = ("username", "email", "first_name", "last_name", )
+        fields = '__all__'
+        # fields = ("username", "email", "first_name", "last_name", )
         field_classes = {"username": user_forms.UsernameField}
 
     def clean_email(self):
@@ -51,20 +70,22 @@ class PersonProfileUpdateForm(forms.ModelForm):
             raise ValidationError(_('User with this email address already exists'))        
 
 
+class PersonUserUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Person
+        fields = '__all__'
+
+
 class ExtendedUserUpdateForm(UserCreationForm):  
     class Meta:
         model = User
-        fields = ('email', 'username', )
-        
-    # def save(self, commit=True):
-    #     user = super().save(commit=False)
-    #     user.email = self.cleaned_data['email'] 
-         
+        fields = ('email', 'username', )       
+       
     
 class UserProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Person
-        fields = ('images', )
+        fields = '__all__' 
 
 
         

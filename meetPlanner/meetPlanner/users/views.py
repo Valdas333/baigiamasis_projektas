@@ -1,15 +1,16 @@
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
-from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView, TemplateView
-from .forms import UserRegisterForm, PersonUpdateForm, PersonProfileUpdateForm, ExtendedUserUpdateForm, UserProfileUpdateForm
+from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView, FormView
 from django.urls import reverse_lazy
-from my_planner.models import Person
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.translation import gettext_lazy as _
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from my_planner.models import Person
+
+from .forms import UserRegisterForm, PersonUpdateForm, PersonProfileUpdateForm, ExtendedUserUpdateForm, UserProfileUpdateForm, UserProfileForm
+from my_planner.models import Person  
+    
 
 class UserCreate(CreateView):
     form_class = UserRegisterForm
@@ -21,18 +22,13 @@ class PersonListView(ListView):
     model = User
     template_name = 'my_planner/persons_list.html'
     context_object_name = 'persons'    
-    paginate_by = 3   
+    paginate_by = 9  
+    
     
 class ProfileDetailView(DetailView):
-    model = Person
+    model = User
     template_name = 'users/person_detail.html'
-
-
-# class CreatePerson(LoginRequiredMixin, CreateView):
-#     form_class = UserRegisterForm
-#     template_name = 'users/create_person.html'
-#     success_url = reverse_lazy('person_list')
-   
+  
    
 class UpdatePerson(LoginRequiredMixin, UpdateView):
     model = User
@@ -46,7 +42,7 @@ class UpdatePerson(LoginRequiredMixin, UpdateView):
     
         
 class DeletePerson(LoginRequiredMixin, DeleteView):
-    model = Person
+    model = User
     template_name = 'users/delete_person_confirm.html' 
     success_url = reverse_lazy('person_list')
     
@@ -66,7 +62,7 @@ class UpdatePersonProfile(LoginRequiredMixin, UpdateView):
     
     
 @login_required
-def update_person_profile(request):
+def create_person(request):
     if request.method == "POST":
         user_form = ExtendedUserUpdateForm(request.POST)
         profile_form = UserProfileUpdateForm(request.POST, request.FILES)
@@ -85,3 +81,24 @@ def update_person_profile(request):
         'profile_form': profile_form,
     }
     return render(request, 'users/register.html', context)
+
+
+@login_required()
+def editUserProfile(request, pk):
+    user_form  = User.objects.get(id = pk)
+    profile_form= Person.objects.get(user_id = pk)
+    if request.method == "POST":
+        form = UserProfileUpdateForm(request.POST, request.FILES, instance=user_form)
+        form1 = UserProfileForm(request.POST, instance=profile_form)
+        if form.is_valid() and form1.is_valid():
+            form.save()
+            form1.save()
+            messages.success(request, f'updated successfully')
+            return redirect('index')
+        else:
+            messages.error(request, f'Please correct the error below.')
+    else:
+        form = UserProfileUpdateForm(request.POST, request.FILES, instance=user_form)
+        form1 = UserProfileForm(request.POST,  instance=profile_form)
+             
+    return render(request, "users/update_person.html", {'form': form, 'form1': form1})
