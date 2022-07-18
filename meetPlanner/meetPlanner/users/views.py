@@ -1,16 +1,14 @@
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
-from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView, FormView
+from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView
+from .forms import UserRegisterForm, PersonUpdateForm, PersonProfileUpdateForm
 from django.urls import reverse_lazy
+User = get_user_model()
+from my_planner.models import Person
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.translation import gettext_lazy as _
-from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
 
-from .forms import UserRegisterForm, PersonUpdateForm, PersonProfileUpdateForm, ExtendedUserUpdateForm, UserProfileUpdateForm, UserProfileForm
-from my_planner.models import Person  
-    
 
 class UserCreate(CreateView):
     form_class = UserRegisterForm
@@ -28,7 +26,13 @@ class PersonListView(ListView):
 class ProfileDetailView(DetailView):
     model = User
     template_name = 'users/person_detail.html'
-  
+
+
+class CreatePerson(LoginRequiredMixin, CreateView):
+    form_class = UserRegisterForm
+    template_name = 'users/create_person.html'
+    success_url = reverse_lazy('person_list')
+   
    
 class UpdatePerson(LoginRequiredMixin, UpdateView):
     model = User
@@ -59,48 +63,3 @@ class UpdatePersonProfile(LoginRequiredMixin, UpdateView):
     def form_valid(self, form):
         messages.success(self.request, _("User data has been updated successfully"))
         return super().form_valid(form)       
-    
-    
-@login_required
-def create_person(request):
-    if request.method == "POST":
-        user_form = ExtendedUserUpdateForm(request.POST)
-        profile_form = UserProfileUpdateForm(request.POST, request.FILES)
-        
-        if user_form.is_valid() and profile_form.is_valid():
-            user_form.save()
-            profile_form.save()           
-            messages.success(request, f"Profilis atnaujintas")
-            return redirect('person_list')
-    else:
-        user_form = ExtendedUserUpdateForm(request.POST)
-        profile_form = UserProfileUpdateForm(request.POST, request.FILES)
-
-    context = {
-        'user_form': user_form,
-        'profile_form': profile_form,
-    }
-    return render(request, 'users/register.html', context)
-
-
-@login_required()
-def editUserProfile(request, pk):
-    user  = User.objects.get(pk = pk)
-    profile = Person.objects.get(user=user)
-    if request.method == "POST":
-        user_profile_form = UserProfileUpdateForm(request.POST, request.FILES, instance=profile)
-        user_form = UserProfileForm(request.POST, instance=user)
-        if user_profile_form.is_valid() and user_form.is_valid():
-            user_profile_form.save()
-            user_form.save()
-            messages.success(request, f'updated successfully')
-            return redirect('index')
-        else:
-            messages.error(request, f'Please correct the error below.')
-    else:
-        user_profile_form = UserProfileUpdateForm(request.POST, request.FILES, instance=profile)
-        user_form = UserProfileForm(request.POST,  instance=user)
-    
-    context= {'profile_form': user_profile_form, 'user_form': user_form}
-             
-    return render(request, "users/update_person.html", context)
