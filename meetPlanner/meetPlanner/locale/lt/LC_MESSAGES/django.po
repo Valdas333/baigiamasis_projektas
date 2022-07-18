@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-17 20:11+0300\n"
+"POT-Creation-Date: 2022-07-18 09:52+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,71 +44,71 @@ msgstr "Pareigos"
 msgid "Images"
 msgstr "Paveiklsiukai"
 
-#: .\my_planner\models.py:23
+#: .\my_planner\models.py:31
 msgid "Person"
 msgstr "Asmuo"
 
-#: .\my_planner\models.py:24
+#: .\my_planner\models.py:32
 msgid "Persons"
 msgstr "Asmenys"
 
-#: .\my_planner\models.py:28
+#: .\my_planner\models.py:36
 msgid "Title"
 msgstr "Pavadinimas"
 
-#: .\my_planner\models.py:29
+#: .\my_planner\models.py:37
 msgid "Responsible person"
 msgstr "Atsakingas asmuo"
 
-#: .\my_planner\models.py:30
+#: .\my_planner\models.py:38
 msgid "Description"
 msgstr "Aprašymas"
 
-#: .\my_planner\models.py:30
+#: .\my_planner\models.py:38
 msgid "Description about 50 simbols"
 msgstr "Aprašymas apie 50 simbolių"
 
-#: .\my_planner\models.py:37
+#: .\my_planner\models.py:45
 msgid "Category"
 msgstr "Kategorija"
 
-#: .\my_planner\models.py:39
+#: .\my_planner\models.py:47
 msgid "Live"
 msgstr "Gyvai"
 
-#: .\my_planner\models.py:40
+#: .\my_planner\models.py:48
 msgid "InPerson"
 msgstr "Asmeniskai"
 
-#: .\my_planner\models.py:42
+#: .\my_planner\models.py:50
 msgid "Type"
 msgstr "Tipas"
 
-#: .\my_planner\models.py:43
+#: .\my_planner\models.py:51
 msgid "Meeting start time"
 msgstr "Susitikimo pradzios laikas"
 
-#: .\my_planner\models.py:44
+#: .\my_planner\models.py:52
 msgid "Meeting end time"
 msgstr "Susitikimo pabaigos laikos"
 
-#: .\my_planner\models.py:45
+#: .\my_planner\models.py:53
 msgid "Meeting create time"
 msgstr "Susitikimo sukurimo laikas"
 
-#: .\my_planner\models.py:49
+#: .\my_planner\models.py:57
 msgid "The date cannot be in the past!"
 msgstr "Data negali būti praeityje"
 
-#: .\my_planner\models.py:51
+#: .\my_planner\models.py:59
 msgid "The end time cannot be earler or equal than start time"
 msgstr "Pabaigos laikas negali būti ankstesni nei pradžios"
 
-#: .\my_planner\models.py:64
+#: .\my_planner\models.py:72
 msgid "Meeting"
 msgstr "Susitikimas"
 
-#: .\my_planner\models.py:65
+#: .\my_planner\models.py:73
 msgid "Meetings"
 msgstr "Susitikimas"
 
@@ -176,8 +176,6 @@ msgid "are you are sure to delete this"
 msgstr "ar tikrai norite ištrinti"
 
 #: .\my_planner\templates\my_planner\delete_meeting_confirm.html:10
-#, fuzzy
-#| msgid "meetings"
 msgid "meeting"
 msgstr "susitikimai"
 
@@ -191,8 +189,6 @@ msgid "landing page"
 msgstr "pagrindinis puslapis"
 
 #: .\my_planner\templates\my_planner\index.html:7
-#, fuzzy
-#| msgid "meetings"
 msgid "all meetings"
 msgstr "susitikimai"
 
@@ -202,8 +198,6 @@ msgstr "redaguoti"
 
 #: .\my_planner\templates\my_planner\index.html:25
 #: .\users\templates\users\delete_person_confirm.html:13
-#, fuzzy
-#| msgid "confirm delete"
 msgid "delete"
 msgstr "patvirtinti ištrinimą"
 
@@ -212,10 +206,8 @@ msgid "mins"
 msgstr "mins"
 
 #: .\my_planner\templates\my_planner\index.html:37
-#, fuzzy
-#| msgid "meetings"
 msgid "no meets"
-msgstr "susitikimai"
+msgstr "nera susitikimu"
 
 #: .\my_planner\templates\my_planner\index.html:55
 #: .\my_planner\templates\my_planner\persons_list.html:50
@@ -228,56 +220,40 @@ msgid "last"
 msgstr "paskutinis"
 
 #: .\my_planner\templates\my_planner\meeting.html:3
-#, fuzzy
-#| msgid "Meeting end time"
 msgid "Meeting details"
-msgstr "Susitikimo pabaigos laikos"
+msgstr "Susitikimo informacija"
 
 #: .\my_planner\templates\my_planner\meeting.html:9
-#, fuzzy
-#| msgid "meetings"
 msgid "View meeting"
-msgstr "susitikimai"
+msgstr "Susitikimai"
 
 #: .\my_planner\templates\my_planner\meeting.html:20
-#, fuzzy
-#| msgid "Duties"
 msgid "Due"
 msgstr "Pareigos"
 
 #: .\my_planner\templates\my_planner\meeting.html:25
-#, fuzzy
-#| msgid "meetings"
 msgid "Empty meeting"
-msgstr "susitikimai"
+msgstr "Nera susitikimų"
 
 #: .\my_planner\templates\my_planner\meeting_detail.html:3
-#, fuzzy
-#| msgid "meeting list"
 msgid "edit meeting|capfirst"
 msgstr "susitikimų sąrašas"
 
 #: .\my_planner\templates\my_planner\meeting_detail.html:10
-#, fuzzy
-#| msgid "Responsible person"
 msgid "responsible person"
-msgstr "Atsakingas asmuo"
+msgstr "atsakingas asmuo"
 
 #: .\my_planner\templates\my_planner\meeting_detail.html:10
 msgid "team"
 msgstr "komanda"
 
 #: .\my_planner\templates\my_planner\meeting_detail.html:11
-#, fuzzy
-#| msgid "Description"
 msgid "description"
-msgstr "Aprašymas"
+msgstr "aprašymas"
 
 #: .\my_planner\templates\my_planner\meeting_detail.html:11
-#, fuzzy
-#| msgid "Category"
 msgid "category"
-msgstr "Kategorija"
+msgstr "kategorija"
 
 #: .\my_planner\templates\my_planner\meeting_detail.html:12
 msgid "starts"
@@ -292,14 +268,10 @@ msgid "type"
 msgstr "tipas"
 
 #: .\my_planner\templates\my_planner\persons_list.html:3
-#, fuzzy
-#| msgid "person list"
 msgid "Persons list"
-msgstr "Asmenų sarasas"
+msgstr "Asmenų sarašas"
 
 #: .\my_planner\templates\my_planner\persons_list.html:7
-#, fuzzy
-#| msgid "persons"
 msgid "all persons"
 msgstr "visi asmenys"
 
@@ -312,22 +284,16 @@ msgid "Delete"
 msgstr "Ištrinti"
 
 #: .\my_planner\templates\my_planner\persons_list.html:32
-#, fuzzy
-#| msgid "meetings"
 msgid "No meets"
 msgstr "Nėra susitikimų"
 
 #: .\my_planner\templates\my_planner\update_meeting.html:8
-#, fuzzy
-#| msgid "create meeting"
 msgid "update meeting"
 msgstr "sukurti susitikimą"
 
 #: .\my_planner\views.py:25
-#, fuzzy
-#| msgid "Meeting create time"
 msgid "Meeting created successfully"
-msgstr "Susitikimo sukūrimo laikas"
+msgstr "Susitikimas sukurtas sėkmingai"
 
 #: .\users\forms.py:32 .\users\forms.py:49
 msgid "User with this email address already exists"
@@ -335,10 +301,8 @@ msgstr "Jau yra vartotojas su tokiu el.paštu"
 
 #: .\users\templates\users\create_person.html:3
 #: .\users\templates\users\create_person.html:8
-#, fuzzy
-#| msgid "create a person"
 msgid "create person"
-msgstr "sukurti asmenys"
+msgstr "sukurti asmenį"
 
 #: .\users\templates\users\delete_person_confirm.html:9
 msgid "delete person information"
@@ -365,28 +329,22 @@ msgid "log in Again"
 msgstr "prisijungti vėl"
 
 #: .\users\templates\users\person_detail.html:3
-#, fuzzy
-#| msgid "person list"
 msgid "view person details"
-msgstr "asmenų sarasas"
+msgstr "asmens profilio informacija"
 
-#: .\users\templates\users\person_detail.html:9
-#, fuzzy
-#| msgid "persons"
+#: .\users\templates\users\person_detail.html:11
 msgid "person name"
 msgstr "asmenys"
 
-#: .\users\templates\users\person_detail.html:9
+#: .\users\templates\users\person_detail.html:11
 msgid "surname"
 msgstr "pavardė"
 
-#: .\users\templates\users\person_detail.html:10
-#, fuzzy
-#| msgid "Duties"
+#: .\users\templates\users\person_detail.html:12
 msgid "duties"
-msgstr "Pareigos"
+msgstr "pareigos"
 
-#: .\users\templates\users\person_detail.html:11
+#: .\users\templates\users\person_detail.html:13
 msgid "email"
 msgstr "el.paštas"
 
@@ -395,10 +353,8 @@ msgid "log in to display"
 msgstr "jei norite matyti prisijungkite"
 
 #: .\users\templates\users\register.html:11
-#, fuzzy
-#| msgid "create a person"
 msgid "create account"
-msgstr "sukurti asmenys"
+msgstr "sukurti paskyrą"
 
 #: .\users\templates\users\register.html:15
 msgid "sign up"
@@ -414,10 +370,8 @@ msgstr "prisijungti"
 
 #: .\users\templates\users\update_person.html:3
 #: .\users\templates\users\update_person.html:8
-#, fuzzy
-#| msgid "create a person"
 msgid "update person "
-msgstr "sukurti asmenys"
+msgstr "atnaujinti asmens info"
 
 #: .\users\views.py:42 .\users\views.py:62
 msgid "User data has been updated successfully"

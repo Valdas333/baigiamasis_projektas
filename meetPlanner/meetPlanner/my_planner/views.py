@@ -13,6 +13,7 @@ class IndexPageListView(ListView):
     context_object_name = 'meetings'
     paginate_by = 3    
 
+
 class MeetingDetailView(DetailView):
     model = Meeting
     
