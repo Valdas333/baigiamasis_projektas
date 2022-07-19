@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{% static 'my_planner/css/meeting_detail.css' %}">
 {% endblock head%}
 {% block content %}
-<h1>{%Meeting title%}: {{object.title}}</h1>
+<h1>{% trans 'meeting title'|capfirst %} : {{object.title}}</h1>
 <h3>{% trans 'responsible person'|capfirst %} : {{object.responsible_person.name}}, {% trans 'team' %} {{object.responsible_person.get_duties_display}}</h3>
 <h3>{% trans 'description'|capfirst %} : {{object.description}} ,{% trans 'category'|capfirst %} {{object.get_category_display}}</h3>
 <h3>{% trans 'starts'|capfirst %}: {{object.start_time}} {% trans 'ends'%} {{object.end_time}} {% trans 'type' %}: {{object.get_type_display}}</h3>

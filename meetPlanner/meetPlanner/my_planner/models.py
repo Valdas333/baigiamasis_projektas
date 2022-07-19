@@ -6,6 +6,7 @@ from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
 from PIL import Image
 
+
 class Person(AbstractUser):
     DUTIES_FIXED_VALUES = (
         ('a', _('Developer')),
@@ -52,7 +53,7 @@ class Meeting(models.Model):
     end_time = models.DateTimeField(_('Meeting end time'),blank=False)
     create_time = models.DateTimeField(_('Meeting create time'), auto_now_add=True, editable=False)
 
-    def clean(self):
+    def clean_data(self):
         if self.start_time < timezone.now():
             raise ValidationError({'start_time': _('The date cannot be in the past!')})
         if self.start_time >= self.end_time:
@@ -71,3 +72,12 @@ class Meeting(models.Model):
     class Meta:
         verbose_name = _('Meeting')
         verbose_name_plural = _('Meetings')
+        
+        
+class MeetingEvent(models.Model):
+    participant = models.ForeignKey(Person, verbose_name=('participant'), on_delete =models.CASCADE, related_name='person')
+    meeting = models.ForeignKey(Meeting, verbose_name=_('meeting'), on_delete=models.CASCADE, related_name='meeting')
+    
+    class Meta:
+        verbose_name = _('Meeting event')
+        verbose_name_plural = _('Meetings events')

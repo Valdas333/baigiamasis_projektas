@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import (CreateMeeting, DeleteMeeting,
                     IndexPageListView, MeetingDetailView,
-                    UpdateMeeting)
+                    UpdateMeeting, AddMeetingEvent)
 
 
 
@@ -11,5 +11,6 @@ urlpatterns = [
     path('meeting/<int:pk>/', MeetingDetailView.as_view(), name='meeting_detail'),  
     path('meeting/<int:pk>/update_meeting/', UpdateMeeting.as_view(), name='update_meeting'),
     path('meeting/<int:pk>/delete_meeting/', DeleteMeeting.as_view(), name='delete_meeting'),
+    path('create_meeting_event/', AddMeetingEvent, name='add_meeting_event')
   
     ]

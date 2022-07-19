@@ -199,7 +199,7 @@ msgstr "redaguoti"
 #: .\my_planner\templates\my_planner\index.html:25
 #: .\users\templates\users\delete_person_confirm.html:13
 msgid "delete"
-msgstr "patvirtinti ištrinimą"
+msgstr "ištrinti"
 
 #: .\my_planner\templates\my_planner\index.html:27
 msgid "mins"

@@ -1,0 +1,11 @@
+{% extends "my_planner/base.html" %}
+{% load i18n %}
+{% block title %}{% trans "create meeting"|capfirst %}{% endblock title%}
+{% block content %}
+<form method="post" >
+    {% csrf_token %}
+    {{ meeting_form.as_p }}
+    {{ participant_form.as_p }}
+    <button type="submit" value="Save">{% trans "create meeting"|capfirst %}</button>
+</form>
+{% endblock content %}
