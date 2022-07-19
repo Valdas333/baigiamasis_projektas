@@ -4,9 +4,8 @@
 {% block content %}
 <form method="POST" enctype="multipart/form-data">>
     {% csrf_token %}
-    {{ form1.as_p }}
-    {{ form.as_p }}
-
-    <button >{% trans 'update person '|capfirst %}{</button>
+    {{ user_form.as_p }}
+    {{ profile_form.as_p }}  
+    <button type="submit" >{% trans 'update person '|capfirst %}{</button>
 </form>
 {% endblock content %}

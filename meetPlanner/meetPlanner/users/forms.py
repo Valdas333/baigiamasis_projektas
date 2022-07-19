@@ -16,6 +16,7 @@ class UserProfileForm(forms.ModelForm):
         model = User
         fields = ('username', 'email', 'first_name', 'last_name')  
 
+
 class EditProfileForm(forms.ModelForm):
     class Meta:
         model = User
@@ -88,4 +89,6 @@ class UserProfileUpdateForm(forms.ModelForm):
         fields = '__all__' 
 
 
-        
+
+
+    

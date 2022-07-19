@@ -85,20 +85,22 @@ def create_person(request):
 
 @login_required()
 def editUserProfile(request, pk):
-    user_form  = User.objects.get(id = pk)
-    profile_form= Person.objects.get(user_id = pk)
+    user  = User.objects.get(pk = pk)
+    profile = Person.objects.get(user=user)
     if request.method == "POST":
-        form = UserProfileUpdateForm(request.POST, request.FILES, instance=user_form)
-        form1 = UserProfileForm(request.POST, instance=profile_form)
-        if form.is_valid() and form1.is_valid():
-            form.save()
-            form1.save()
+        user_profile_form = UserProfileUpdateForm(request.POST, request.FILES, instance=profile)
+        user_form = UserProfileForm(request.POST, instance=user)
+        if user_profile_form.is_valid() and user_form.is_valid():
+            user_profile_form.save()
+            user_form.save()
             messages.success(request, f'updated successfully')
             return redirect('index')
         else:
             messages.error(request, f'Please correct the error below.')
     else:
-        form = UserProfileUpdateForm(request.POST, request.FILES, instance=user_form)
-        form1 = UserProfileForm(request.POST,  instance=profile_form)
+        user_profile_form = UserProfileUpdateForm(request.POST, request.FILES, instance=profile)
+        user_form = UserProfileForm(request.POST,  instance=user)
+    
+    context= {'profile_form': user_profile_form, 'user_form': user_form}
              
-    return render(request, "users/update_person.html", {'form': form, 'form1': form1})
+    return render(request, "users/update_person.html", context)
