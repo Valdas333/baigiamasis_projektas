@@ -1,7 +1,7 @@
 from django import forms
 from .models import Meeting
 from .date_time_widget import MinimalSplitDateTimeMultiWidget
-from my_planner.models import Person, MeetingEvent
+from my_planner.models import MeetingEvent
 
 
 class CreateMeetingForm(forms.ModelForm):

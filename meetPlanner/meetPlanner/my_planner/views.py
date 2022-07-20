@@ -5,11 +5,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 from django.shortcuts import render, redirect
-
 from .models import Meeting, MeetingEvent
+from django.contrib.auth import get_user_model
 
-
-class MeetingEvent(ListView):
+class MeetingEventList(ListView):
     model = MeetingEvent
     template_name = 'my_planner/index.html'
     context_object_name = 'meetings'
@@ -47,14 +46,6 @@ class DeleteMeeting(LoginRequiredMixin,DeleteView):
     success_url = reverse_lazy('index')
     
     
-# class AddMeetingEvent(LoginRequiredMixin, CreateView): 
-#     form_class = MeetingEventForm
-#     template_name = 'my_planner/create_meeting_event.html'
-#     success_url = reverse_lazy('index')
-    
-#     def form_valid(self, form):
-#         messages.success(self.request, (_("Meeting event created successfully")))
-#         return super().form_valid(form)      
 
 def AddMeetingEvent(request):
     if request.method == 'POST':
@@ -81,5 +72,14 @@ def AddMeetingEvent(request):
     return render(request, 'my_planner/create_meeting_event.html', context)
 
             
+def UserMeetingFilterView(request):
+    user = request.user.id 
+    all_events = MeetingEvent.objects.all()
+    print(user)
+    user_event = all_events.filter(participant_id = user) 
+    all_meetings = Meeting.objects.all()
+    context = {'events': user_event,
+               'meetings': all_meetings,}
+    return render(request, 'my_planner/user_events.html', context)
             
             
