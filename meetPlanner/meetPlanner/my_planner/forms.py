@@ -8,10 +8,10 @@ class CreateMeetingForm(forms.ModelForm):
     class Meta:
         model = Meeting
         fields = ('title', 'description', 'category', 'type', 'start_time', 'end_time', 'responsible_person')
-        # widgets = {
-        #     'start_time': MinimalSplitDateTimeMultiWidget(),
-        #     'end_time': MinimalSplitDateTimeMultiWidget(),
-        # }
+        widgets = {
+            'start_time': MinimalSplitDateTimeMultiWidget(),
+            'end_time': MinimalSplitDateTimeMultiWidget(),
+        }
         
 
 class UpdateMeetingForm(forms.ModelForm):

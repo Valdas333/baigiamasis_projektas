@@ -27,13 +27,18 @@ class MinimalSplitDateTimeMultiWidget(MultiWidget):
 
     def value_from_datadict(self, data, files, name):
         date_str, time_str = super().value_from_datadict(data, files, name)
-
+        print(date_str)
+        print(time_str)
+        if date_str is None:
+            date_str = "" 
+        if time_str is None:
+            time_str = ""
         if date_str == time_str == '':
             return None
 
         if time_str == '':
             time_str = '00:00'
 
-        my_datetime = datetime.strptime(date_str + ' ' + time_str, "%Y-%m-%d %H:%M")
+        my_datetime = datetime.strptime(str(date_str) + ' ' + time_str, "%Y-%m-%d %H:%M")
         # making timezone aware
         return make_aware(my_datetime)

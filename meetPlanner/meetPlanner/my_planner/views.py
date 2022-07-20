@@ -9,6 +9,12 @@ from django.shortcuts import render, redirect
 from .models import Meeting, MeetingEvent
 
 
+class MeetingEvent(ListView):
+    model = MeetingEvent
+    template_name = 'my_planner/index.html'
+    context_object_name = 'meetings'
+
+
 class IndexPageListView(ListView):
     model = Meeting
     template_name = 'my_planner/index.html'
@@ -65,8 +71,8 @@ def AddMeetingEvent(request):
             return redirect('person_list')
 
     else:
-        meeting_form = CreateMeetingForm(request.POST)
-        participant_form = MeetingEventForm(request.POST)
+        meeting_form = CreateMeetingForm()
+        participant_form = MeetingEventForm()
         
     context = {
         'meeting_form': meeting_form,

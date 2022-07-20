@@ -42,7 +42,7 @@
             <ul class="list-unstyled">
               <li><a href="{% url 'index' %}" class="text-white">{% trans "meetings"|capfirst %}</a></li>
               <li><a href="{% url 'create_meeting' %}" class="text-white">{% trans "create a meeting"|capfirst %}</a></li>
-              <li><a href="#" class="text-white">Email me</a></li>
+              <li><a href="{% url 'meeting_events' %}" class="text-white">{% trans "show meeting events"|capfirst %}</a></li>
             </ul>
           </div>
         </div>
