@@ -47,7 +47,7 @@ class DeleteMeeting(LoginRequiredMixin,DeleteView):
     
     
 
-def AddMeetingEvent(request):
+def add_meeting_event(request):
     if request.method == 'POST':
         meeting_form = CreateMeetingForm(request.POST)
         participant_form = MeetingEventForm(request.POST)
@@ -72,11 +72,11 @@ def AddMeetingEvent(request):
     return render(request, 'my_planner/create_meeting_event.html', context)
 
             
-def UserMeetingFilterView(request):
+def user_meeting_filter(request):
     user = request.user.id 
     all_events = MeetingEvent.objects.all()
-    print(user)
     user_event = all_events.filter(participant_id = user) 
+    print(user_event)
     all_meetings = Meeting.objects.all()
     context = {'events': user_event,
                'meetings': all_meetings,}

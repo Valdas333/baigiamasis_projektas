@@ -21,6 +21,7 @@ class PersonListView(ListView):
     context_object_name = 'persons'    
     paginate_by = 3   
     
+    
 class ProfileDetailView(DetailView):
     model = Person
     template_name = 'users/person_detail.html'

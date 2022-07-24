@@ -4,7 +4,7 @@
 
 {% block content %}
 {% if events %}
-<h1 class="text-center">{% trans 'my meetings'|capfirst % }:</h1>
+<h1 class="text-center">{% trans 'my meetings'|capfirst %}:</h1>
 <div class="album py-5 bg-light">
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -15,14 +15,14 @@
             role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
             <title>Placeholder</title>
             <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em"><a
-                href="{% url 'meeting_detail' event.id %}">{{ meetings.title }}</a></text>
+                href="{% url 'meeting_detail' event.meeting.pk %}">{{ event.meeting.title }}</a></text>
           </svg>
           <div class="card-body">
-            <p class="card-text">{{ events.meeting_id }}</p>
+            <p class="card-text">{{ event.meeting.description }}</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-                <a href="{% url 'update_meeting' event.id %}" class="btn btn-primary">{% trans 'edit'|capfirst %}</a>
-                <a href="{% url 'delete_meeting' event.id %}" class="btn btn-danger">{% trans 'delete'|capfirst %}</a>
+                <a href="{% url 'update_meeting' event.meeting.id %}" class="btn btn-primary">{% trans 'edit'|capfirst %}</a>
+                <a href="{% url 'delete_meeting' event.meeting.id %}" class="btn btn-danger">{% trans 'delete'|capfirst %}</a>
               </div>
               <small class="text-muted">{{ meeting.meeting_duration }} {% trans 'mins' %}</small>
             </div>

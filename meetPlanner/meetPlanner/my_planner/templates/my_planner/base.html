@@ -34,7 +34,6 @@
             <ul class="list-unstyled">
               <li><a href="{% url 'person_list' %}" class="text-white">{% trans "persons"|capfirst %}</a></li>
               <li><a href="{% url 'create_person' %}" class="text-white">{% trans "create a person"|capfirst %}</a></li>
-              <li><a href="#" class="text-white">Email me</a></li>
             </ul>
           </div>
           <div class="col-sm-4 offset-md-1 py-4">
@@ -42,7 +41,7 @@
             <ul class="list-unstyled">
               <li><a href="{% url 'index' %}" class="text-white">{% trans "meetings"|capfirst %}</a></li>
               <li><a href="{% url 'create_meeting' %}" class="text-white">{% trans "create a meeting"|capfirst %}</a></li>
-              <li><a href="{% url 'meeting_events' %}" class="text-white">{% trans "show my meeting events"|capfirst %}</a></li>
+              <li><a href="{% url 'user_meeting_filter' %}" class="text-white">{% trans "show my meeting events"|capfirst %}</a></li>
             </ul>
           </div>
         </div>

@@ -75,7 +75,7 @@ class Meeting(models.Model):
         
         
 class MeetingEvent(models.Model):
-    participant = models.ForeignKey(Person, verbose_name=('participant'), on_delete =models.CASCADE, related_name='person')
+    participant = models.ForeignKey(Person, verbose_name=_('participant'), on_delete =models.CASCADE, related_name='person')
     meeting = models.ForeignKey(Meeting, verbose_name=_('meeting'), on_delete=models.CASCADE, related_name='meeting')
     
     class Meta:
